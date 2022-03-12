@@ -18,7 +18,7 @@ export default {
     }
   },
   setup(props) {
-    console.log(props.email)
+    // console.log(props.email)
     return {
       format,
       marked

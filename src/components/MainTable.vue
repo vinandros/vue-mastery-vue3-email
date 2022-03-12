@@ -18,12 +18,15 @@
       </tr>
     </tbody>
   </table>
-  <MailView v-if="openedEmail" :email="openedEmail" />
+  <ModalView v-if="openedEmail" @closeModal="openedEmail = null">
+    <MailView :email="openedEmail" />
+  </ModalView>
 </template>
 
 <script>
 import { format } from 'date-fns'
 import MailView from './MailView'
+import ModalView from './ModalView'
 import axios from 'axios'
 export default {
   name:"MainTable",
@@ -36,7 +39,8 @@ export default {
     }
   },
   components:{
-    MailView
+    MailView,
+    ModalView
   },
   computed:{
     sortedEmails(){
